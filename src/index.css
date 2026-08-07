@@ -1,0 +1,279 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   VANCE & ROSTOVA — DESIGN SYSTEM
+   Typography: SUSE (Google Fonts, loaded via index.html)
+   Color: Deep Navy / Smart Blue Architectural Palette
+   ============================================================ */
+
+:root {
+  --heading-font:'Highkind', 'Outfit', 'Syne', sans-serif;
+  --body-font:   'Montserrat', 'SUSE', sans-serif;
+  --suse:        'Montserrat', 'SUSE', sans-serif;
+
+  /* Deep Navy / Blue palette */
+  --obsidian:    #001233;
+  --onyx:        #001845;
+  --charcoal:    #002855;
+  --twilight:    #33415c;
+  --blue-slate:  #5c677d;
+  --muted:       #7d8597;
+  --lav-grey:    #979dac;
+  --alabaster:   #e5e7ea;
+  --cream:       #d0d7e5;
+
+  /* Accent */
+  --accent:      #0466c8;
+  --accent-light:#4ba3fb;
+  --accent-dim:  rgba(4, 102, 200, 0.2);
+  --sapphire:    #0353a4;
+  --navy:        #023e7d;
+
+  /* Borders */
+  --border:      rgba(255,255,255,0.07);
+  --border-blue: rgba(4,102,200,0.2);
+
+  --header-height: 80px;
+}
+
+/* ── Base ───────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-family: var(--body-font);
+  background-color: var(--obsidian);
+  color: var(--alabaster);
+  scroll-behavior: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--heading-font);
+}
+
+/* ── Unified Visual Hierarchy & Component Consistency ──── */
+h1 {
+  font-family: var(--heading-font);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-family: var(--heading-font);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-family: var(--heading-font);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+p, span, label, input, textarea {
+  font-family: var(--body-font);
+}
+
+.esac-card {
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(16px);
+  transition: all 0.4s ease;
+}
+
+.esac-btn {
+  border-radius: 9999px;
+  font-family: var(--body-font);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+/* Lenis */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+.lenis.lenis-scrolling iframe { pointer-events: none; }
+
+/* ── Selection / Scrollbar ───────────────────────────────── */
+::selection { background: var(--accent); color: var(--obsidian); }
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--obsidian); }
+::-webkit-scrollbar-thumb { background: rgba(4,102,200,0.3); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* ── Architectural Background Layers ────────────────────── */
+/* Fine blueprint grid (CSS only, no SVG) */
+.grid-fine {
+  background-image:
+    linear-gradient(rgba(4,102,200,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(4,102,200,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Larger structural grid */
+.grid-arch {
+  background-image:
+    linear-gradient(rgba(4,102,200,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(4,102,200,0.07) 1px, transparent 1px);
+  background-size: 120px 120px;
+}
+
+/* Noise grain */
+.bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+}
+
+/* Radial blue glow */
+.warm-glow {
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(4,102,200,0.07) 0%, transparent 70%);
+}
+
+/* Coordinate overlay grid */
+.coord-overlay {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(4,102,200,0.03) 79px, rgba(4,102,200,0.03) 80px),
+    repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(4,102,200,0.03) 79px, rgba(4,102,200,0.03) 80px);
+}
+
+/* ── Glass Panels ───────────────────────────────────────── */
+.glass {
+  background: rgba(0,18,51,0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+}
+.glass-blue {
+  background: rgba(0,12,33,0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--border-blue);
+}
+/* Legacy aliases */
+.glass-panel { background: rgba(0,18,51,0.65); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid var(--border); }
+.glass-panel-gold { background: rgba(0,12,33,0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid var(--border-blue); }
+
+/* HUD Panel */
+.hud-panel {
+  background: rgba(0,8,25,0.88);
+  border: 1px solid rgba(4,102,200,0.2);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+}
+
+/* ── Line Decorators ─────────────────────────────────────── */
+.line-accent { height: 1px; background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0.4; }
+.line-border  { height: 1px; background: var(--border); }
+.line-v       { width: 1px; background: var(--border); }
+.line-v-blue  { width: 1px; background: var(--border-blue); }
+.arch-rule    { width: 40px; height: 1px; background: var(--accent); opacity: 0.6; }
+
+/* ── Custom Cursor ───────────────────────────────────────── */
+.custom-cursor {
+  position: fixed; top: 0; left: 0;
+  width: 44px; height: 44px;
+  border: 1px solid rgba(4,102,200,0.5);
+  border-radius: 50%;
+  pointer-events: none; z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width .4s cubic-bezier(.16,1,.3,1), height .4s cubic-bezier(.16,1,.3,1), background-color .3s, border-color .3s;
+  display: flex; align-items: center; justify-content: center;
+}
+.custom-cursor-dot {
+  position: fixed; top: 0; left: 0;
+  width: 5px; height: 5px;
+  background: var(--accent); border-radius: 50%;
+  pointer-events: none; z-index: 10000;
+  transform: translate(-50%,-50%);
+  transition: transform .08s ease-out;
+}
+.custom-cursor.hovering {
+  width: 72px; height: 72px;
+  background: rgba(4,102,200,0.12);
+  border-color: var(--accent);
+}
+.custom-cursor-text {
+  font-family: var(--suse); font-size: 8px; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--accent);
+  opacity: 0; transition: opacity .2s;
+}
+.custom-cursor.hovering .custom-cursor-text { opacity: 1; }
+
+/* ── SplitText ───────────────────────────────────────────── */
+.split-line-overflow { overflow: hidden; display: block; }
+.split-word  { display: inline-block; white-space: nowrap; }
+.split-char  { display: inline-block; will-change: transform, opacity; }
+
+/* ── Hover helpers ───────────────────────────────────────── */
+.hover-lift {
+  transition: transform .5s cubic-bezier(.16,1,.3,1), box-shadow .5s;
+}
+.hover-lift:hover { transform: translateY(-4px); box-shadow: 0 20px 48px -16px rgba(0,0,0,0.5); }
+.hover-image-zoom { overflow: hidden; }
+.hover-image-zoom img { transition: transform 1.4s cubic-bezier(.16,1,.3,1); }
+.hover-image-zoom:hover img { transform: scale(1.05); }
+
+/* ── Scan line ───────────────────────────────────────────── */
+@keyframes scan {
+  0%   { transform: translateY(-100%); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateY(800%); opacity: 0; }
+}
+.scan-line {
+  position: absolute; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(4,102,200,0.5), transparent);
+  animation: scan 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* ── Coordinate pulse ────────────────────────────────────── */
+@keyframes coord-pulse { 0%,100%{opacity:.35} 50%{opacity:.7} }
+.coord-pulse { animation: coord-pulse 4s ease-in-out infinite; }
+
+/* ── Marquee ─────────────────────────────────────────────── */
+@keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+.marquee-track {
+  display: flex; width: max-content;
+  animation: marquee 32s linear infinite;
+}
+.marquee-track:hover { animation-play-state: paused; }
+
+/* ── FadeIn ──────────────────────────────────────────────── */
+@keyframes fadeIn { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+.animate-fadeIn { animation: fadeIn .6s ease forwards; }
+
+/* ── Project Atlas sticky section ────────────────────────── */
+.atlas-sticky-wrap {
+  position: relative;
+}
+.atlas-slide {
+  position: absolute; inset: 0;
+  will-change: opacity, transform;
+}
+
+/* ── Pulse dot ───────────────────────────────────────────── */
+@keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.6;transform:scale(1.4)} }
+.pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
+
+/* ── Cinematic Deep Glass HUD ───────────────────────────── */
+.cinematic-card-hud {
+  background: rgba(10, 10, 10, 0.65);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.6), inset 0 1px 1px 0 rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+}
+
