@@ -2,7 +2,6 @@ import React from 'react';
 import { NavProvider, useNav } from './context/NavContext';
 import { useLenis } from './hooks/useLenis';
 import { CustomCursor } from './components/Common/CustomCursor';
-import { CinematicTunnelIntro } from './components/Common/CinematicTunnelIntro';
 import { Navigation } from './components/Common/Navigation';
 import { Footer } from './components/Common/Footer';
 // CanvasGrid removed — heavy canvas loop was causing lag
@@ -72,7 +71,6 @@ const MainApp = () => {
 
   return (
     <div style={{ position: 'relative', minHeight: '100vh', background: '#001233', color: '#e5e7ea', fontFamily: 'SUSE, monospace', overflowX: 'hidden' }}>
-      {!isPreloaded && <CinematicTunnelIntro />}
       <CustomCursor />
       <Navigation />
       <main style={{ width: '100%', position: 'relative', zIndex: 10 }}>

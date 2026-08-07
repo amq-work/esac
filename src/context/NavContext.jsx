@@ -5,7 +5,7 @@ const NavContext = createContext();
 export const NavProvider = ({ children }) => {
   const [currentPage, setCurrentPage] = useState('home');
   const [isNavOpen, setIsNavOpen] = useState(false);
-  const [isPreloaded, setIsPreloaded] = useState(false);
+  const [isPreloaded, setIsPreloaded] = useState(true);
   const [cursorText, setCursorText] = useState('');
   const [cursorHovering, setCursorHovering] = useState(false);
   const [selectedResidenceModal, setSelectedResidenceModal] = useState(null);
