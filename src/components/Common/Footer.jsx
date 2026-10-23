@@ -88,7 +88,7 @@ export const Footer = () => {
         </div>
 
         {/* Bottom Copyright Strip */}
-        <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[11px] font-mono text-white/40">
+        <div className="pt-8 flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-4 text-[11px] font-mono text-white/40">
           <div>
             © 2026 ESAC ARCHITECTS &amp; ENGINEERS GROUP. ALL RIGHTS RESERVED.
             <span className="hidden sm:inline mx-2 text-white/20">|</span>
@@ -99,7 +99,7 @@ export const Footer = () => {
               </span>
             </span>
           </div>
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
             <button onClick={() => setCurrentPage('privacy')} className="hover:text-white transition-colors">Privacy Policy</button>
             <button onClick={() => setCurrentPage('terms')} className="hover:text-white transition-colors">Terms &amp; Conditions</button>
             <button 

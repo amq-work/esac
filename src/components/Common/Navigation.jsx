@@ -61,11 +61,11 @@ export const Navigation = () => {
   return (
     <>
       <header
-        className="fixed top-4 left-1/2 -translate-x-1/2 z-50 rounded-full border"
+        className="fixed top-3 sm:top-4 left-1/2 -translate-x-1/2 z-50 rounded-full border"
         style={{
           width: scrolled ? '220px' : '94%',
           maxWidth: scrolled ? '220px' : '1380px',
-          padding: scrolled ? '7px 12px' : '14px 28px',
+          padding: scrolled ? '7px 12px' : 'clamp(8px, 2vw, 14px) clamp(14px, 3vw, 28px)',
           background: scrolled
             ? 'rgba(0, 12, 40, 0.92)'
             : 'rgba(255, 255, 255, 0.02)',
@@ -225,7 +225,7 @@ export const Navigation = () => {
         <div className="absolute inset-0 grid-fine pointer-events-none" style={{ opacity: 0.5 }} />
         <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 70% 60% at 50% 20%, rgba(4,102,200,0.06) 0%, transparent 70%)' }} />
         <div className="h-24 flex-shrink-0" />
-        <div className="flex-1 max-w-screen-2xl mx-auto w-full px-8 md:px-16 grid grid-cols-1 lg:grid-cols-12 gap-12 py-8">
+        <div className="flex-1 max-w-screen-2xl mx-auto w-full px-5 sm:px-8 md:px-16 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 py-6 sm:py-8">
           <div className="lg:col-span-8 flex flex-col justify-center">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-1 gap-x-12">
               {navItems.map((item, idx) => (
@@ -233,7 +233,7 @@ export const Navigation = () => {
                   <button
                     ref={el => linksRef.current[idx] = el}
                     onClick={() => { setCurrentPage(item.id); setIsNavOpen(false); }}
-                    className="group flex items-baseline gap-4 py-2.5 w-full text-left cursor-pointer"
+                    className="group flex items-baseline gap-4 py-2 sm:py-2.5 w-full text-left cursor-pointer"
                     style={{ opacity: 0 }}
                   >
                     <span style={{ fontSize: '0.52rem', letterSpacing: '0.3em', color: `rgba(4,102,200,0.45)`, minWidth: 28 }}>
@@ -247,7 +247,7 @@ export const Navigation = () => {
               ))}
             </div>
           </div>
-          <div className="lg:col-span-4 flex flex-col justify-center border-t lg:border-t-0 lg:border-l pt-8 lg:pt-0 lg:pl-12 space-y-8" style={{ borderColor: TB }}>
+          <div className="lg:col-span-4 flex flex-col justify-center border-t lg:border-t-0 lg:border-l pt-6 lg:pt-0 lg:pl-12 space-y-6 sm:space-y-8" style={{ borderColor: TB }}>
             <div style={{ fontSize: '0.58rem', letterSpacing: '0.2em', textTransform: 'uppercase' }}>
               <div style={{ color: `rgba(4,102,200,0.5)`, marginBottom: 8, fontWeight: 'bold' }}>ESAC CONSULTANTS</div>
               <div style={{ color: 'rgba(255,255,255,0.4)', lineHeight: 1.9 }}>Ground Floor D-97, Commercial Broadway</div>
@@ -257,7 +257,7 @@ export const Navigation = () => {
             </div>
           </div>
         </div>
-        <div className="max-w-screen-2xl mx-auto w-full px-8 pb-8 flex justify-between items-center border-t pt-6" style={{ borderColor: TB }}>
+        <div className="max-w-screen-2xl mx-auto w-full px-5 sm:px-8 pb-6 sm:pb-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 border-t pt-4 sm:pt-6" style={{ borderColor: TB }}>
           <span style={{ fontSize: '0.52rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)' }}>© 2026 ESAC ARCHITECTS & ENGINEERS CONSULTANTS</span>
           <span style={{ fontSize: '0.52rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.2)' }}>ISO 9001:2015 CERTIFIED</span>
         </div>

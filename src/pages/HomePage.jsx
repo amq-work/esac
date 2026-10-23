@@ -179,15 +179,15 @@ const CHAPTERS = [
 ];
 
 const POSITION_CLASSES = {
-  TOP_LEFT: "top-6 left-6 md:top-14 md:left-14",
-  TOP_CENTER: "top-6 left-1/2 -translate-x-1/2 md:top-14",
-  TOP_RIGHT: "top-6 right-6 md:top-14 md:right-14",
-  CENTER_LEFT: "top-1/4 left-6 md:top-1/2 md:-translate-y-1/2 md:left-14",
+  TOP_LEFT: "top-5 left-4 md:top-14 md:left-14",
+  TOP_CENTER: "top-5 left-1/2 -translate-x-1/2 md:top-14",
+  TOP_RIGHT: "top-5 right-4 md:top-14 md:right-14",
+  CENTER_LEFT: "top-1/4 left-4 md:top-1/2 md:-translate-y-1/2 md:left-14",
   CENTER: "top-1/3 left-1/2 -translate-x-1/2 md:top-1/2 md:-translate-y-1/2",
-  CENTER_RIGHT: "top-1/4 right-6 md:top-1/2 md:-translate-y-1/2 md:right-14",
-  BOTTOM_LEFT: "bottom-16 left-6 md:bottom-14 md:left-14",
-  BOTTOM_CENTER: "bottom-16 left-1/2 -translate-x-1/2 md:bottom-14",
-  BOTTOM_RIGHT: "bottom-16 right-6 md:bottom-14 md:right-14",
+  CENTER_RIGHT: "top-1/4 right-4 md:top-1/2 md:-translate-y-1/2 md:right-14",
+  BOTTOM_LEFT: "bottom-20 left-4 md:bottom-14 md:left-14",
+  BOTTOM_CENTER: "bottom-20 left-1/2 -translate-x-1/2 md:bottom-14",
+  BOTTOM_RIGHT: "bottom-20 right-4 md:bottom-14 md:right-14",
 };
 
 const TOTAL_FRAMES = 160;
@@ -464,7 +464,7 @@ const CinematicSection = () => {
                 return (
                   <div
                     key={cardIdx}
-                    className={`ch-card-${ch.id} absolute ${posClass} w-[200px] md:w-[290px] p-5 md:p-6 cinematic-card-hud pointer-events-auto flex flex-col`}
+                    className={`ch-card-${ch.id} absolute ${posClass} w-[210px] sm:w-[260px] md:w-[290px] max-w-[85vw] p-4 sm:p-5 md:p-6 cinematic-card-hud pointer-events-auto flex flex-col`}
                   >
                     <span style={{ fontFamily: 'SUSE, monospace', fontSize: '0.55rem', color: '#4ba3fb', letterSpacing: '0.25em', textTransform: 'uppercase', marginBottom: '8px' }}>
                       {card.eyebrow}
@@ -681,19 +681,19 @@ const ProjectAtlas = () => {
 
             {/* Project info card */}
             <div
-              className="absolute bottom-0 left-0 px-10 pb-12 md:px-16 md:pb-16 w-full lg:w-3/5"
+              className="absolute bottom-12 sm:bottom-0 left-0 px-6 pb-8 sm:px-10 sm:pb-12 md:px-16 md:pb-16 w-full lg:w-3/5"
               style={{ cursor: 'default' }}
             >
               <div style={{ fontFamily: M, fontSize: '0.55rem', letterSpacing: '0.3em', textTransform: 'uppercase', color: `rgba(4,102,200,0.5)`, marginBottom: 12 }}>
                 {proj.sector} · {proj.location.split(',')[0].toUpperCase()}
               </div>
 
-              <h3 style={{ fontFamily: M, fontSize: 'clamp(2rem,4vw,4.5rem)', fontWeight: 200, letterSpacing: '-0.02em', lineHeight: 0.95, color: TX, marginBottom: '1.2rem' }}>
+              <h3 style={{ fontFamily: M, fontSize: 'clamp(1.8rem,4vw,4.5rem)', fontWeight: 200, letterSpacing: '-0.02em', lineHeight: 0.95, color: TX, marginBottom: '1.2rem' }}>
                 {proj.title}
               </h3>
 
               {/* Meta strip */}
-              <div className="flex flex-wrap gap-8 mb-6">
+              <div className="flex flex-wrap gap-4 sm:gap-8 mb-4 sm:mb-6">
                 {[
                   { k: 'Location',       v: proj.location },
                   { k: 'Scale',          v: proj.scale },
@@ -1980,16 +1980,16 @@ export const HomePage = () => {
         {/* ── Bottom bar: brand-mark LEFT · headline RIGHT (CUUB layout) ── */}
         <div
           className="absolute bottom-0 left-0 right-0 z-20"
-          style={{ padding: 'clamp(2rem,4vw,3.5rem) clamp(1.5rem,5vw,4rem)' }}
+          style={{ padding: 'clamp(1.5rem,4vw,3.5rem) clamp(1.2rem,5vw,4rem)' }}
         >
-          <div className="flex items-end justify-between gap-8">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 sm:gap-8">
 
             {/* LEFT — ESAC brand-mark (Highkind font, bold) */}
             <div className="hero-brand" style={{ opacity: 0 }}>
               <div
                 style={{
                   fontFamily: "'Highkind', 'Outfit', 'Syne', sans-serif",
-                  fontSize: 'clamp(4.5rem,10vw,11rem)',
+                  fontSize: 'clamp(3.8rem,10vw,11rem)',
                   fontWeight: 800,
                   letterSpacing: '-0.04em',
                   lineHeight: 0.85,
@@ -2002,11 +2002,11 @@ export const HomePage = () => {
               <div
                 style={{
                   fontFamily: "'SUSE', monospace",
-                  fontSize: 'clamp(0.52rem,1vw,0.7rem)',
-                  letterSpacing: '0.34em',
+                  fontSize: 'clamp(0.5rem,1vw,0.7rem)',
+                  letterSpacing: '0.28em',
                   textTransform: 'uppercase',
                   color: 'rgba(255,255,255,0.4)',
-                  marginTop: '0.7rem',
+                  marginTop: '0.6rem',
                 }}
               >
                 Engineering Services &amp; Architectural Consultants
@@ -2014,10 +2014,10 @@ export const HomePage = () => {
             </div>
 
             {/* RIGHT — Dynamic headline (baseline-ascend) + CTA */}
-            <div style={{ textAlign: 'right', maxWidth: 'clamp(260px,40vw,520px)', flexShrink: 0 }}>
+            <div className="text-left sm:text-right max-w-full sm:max-w-[clamp(260px,40vw,520px)] flex-shrink-0">
 
               {/* Dynamic cycling headline */}
-              <div style={{ marginBottom: 'clamp(1.2rem,2.5vw,2rem)', overflow: 'hidden' }}>
+              <div style={{ marginBottom: 'clamp(1rem,2.5vw,2rem)', overflow: 'hidden' }}>
                 {HEADLINES[hlIdx].map((word, i) => {
                   const delay = `${i * 0.08}s`;
 
@@ -2126,7 +2126,7 @@ export const HomePage = () => {
 
         {/* ── Scroll nudge ── */}
         <div
-          className="hero-scroll-nudge absolute z-20"
+          className="hero-scroll-nudge absolute z-20 hidden sm:flex"
           style={{
             opacity: 0,
             left: '50%',

@@ -180,6 +180,11 @@ html.lenis, html.lenis body { height: auto; }
 .arch-rule    { width: 40px; height: 1px; background: var(--accent); opacity: 0.6; }
 
 /* ── Custom Cursor ───────────────────────────────────────── */
+@media (pointer: coarse), (hover: none) {
+  .custom-cursor, .custom-cursor-dot {
+    display: none !important;
+  }
+}
 .custom-cursor {
   position: fixed; top: 0; left: 0;
   width: 44px; height: 44px;

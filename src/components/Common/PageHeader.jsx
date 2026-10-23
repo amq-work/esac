@@ -8,11 +8,11 @@ const TX = '#e5e7ea';
 const TB = 'rgba(4,102,200,0.16)';
 
 export const PageHeader = ({ title, subtitle, label }) => (
-  <section className="relative pt-40 pb-20 border-b overflow-hidden" style={{ background: '#000d22', borderColor: TB, fontFamily: M }}>
+  <section className="relative pt-28 sm:pt-40 pb-14 sm:pb-20 border-b overflow-hidden" style={{ background: '#000d22', borderColor: TB, fontFamily: M }}>
     <div className="absolute inset-0 grid-fine pointer-events-none" style={{ opacity: 0.45 }} />
     <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 70% 55% at 50% 0%, rgba(4,102,200,0.06) 0%, transparent 70%)' }} />
     <div className="absolute top-0 left-0 right-0" style={{ height: 1, background: 'linear-gradient(90deg,transparent,rgba(4,102,200,0.35),transparent)' }} />
-    <div className="relative max-w-screen-2xl mx-auto px-8">
+    <div className="relative max-w-screen-2xl mx-auto px-5 sm:px-8">
       {label && (
         <div style={{ fontSize: '0.58rem', letterSpacing: '0.3em', textTransform: 'uppercase', color: `rgba(4,102,200,0.45)`, marginBottom: 18 }}>
           {label}
