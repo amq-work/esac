@@ -123,14 +123,9 @@ export const Navigation = () => {
             </div>
           </button>
 
-          {/* Desktop nav items: main 5 pages */}
+          {/* Desktop nav items: main 5 pages (only on desktop xl+, never on mobile) */}
           <div
-            style={{
-              display: scrolled ? 'none' : 'flex',
-              alignItems: 'center',
-              overflow: 'hidden',
-            }}
-            className="hidden xl:flex"
+            className={`hidden xl:flex items-center overflow-hidden ${scrolled ? '!hidden' : ''}`}
           >
             <nav className="flex items-center gap-7 px-6 whitespace-nowrap">
               {[
@@ -155,13 +150,9 @@ export const Navigation = () => {
 
           {/* Right panel — always on the RIGHT */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
-            {/* Consultation Button (only on desktop/tablet sm+ when not scrolled) */}
+            {/* Consultation Button (only on desktop xl+ when not scrolled, hidden on mobile/tablet) */}
             <div
-              style={{
-                display: scrolled ? 'none' : undefined,
-                alignItems: 'center',
-              }}
-              className="hidden sm:flex"
+              className={`hidden xl:flex items-center ${scrolled ? '!hidden' : ''}`}
             >
               <ConsultationButton
                 onClick={() => setCurrentPage('contact')}
@@ -170,11 +161,11 @@ export const Navigation = () => {
               />
             </div>
 
-            {/* Phone icon (only visible when scrolled/collapsed on sm+ screens) */}
+            {/* Phone icon (only visible when scrolled/collapsed on desktop xl+ screens) */}
             {scrolled && (
               <button
                 onClick={() => setCurrentPage('contact')}
-                className="hidden sm:flex"
+                className="hidden xl:flex"
                 style={{
                   width: '30px', height: '30px', borderRadius: '50%',
                   border: '1px solid rgba(75,163,251,0.4)',
