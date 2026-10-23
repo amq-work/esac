@@ -94,14 +94,9 @@ export const Footer = () => {
             <span className="hidden sm:inline mx-2 text-white/20">|</span>
             <span className="block sm:inline mt-1 sm:mt-0 text-white/50">
               Designed and Developed by{' '}
-              <a 
-                href="https://www.digitalnexes.com" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-[#4ba3fb] hover:text-white hover:underline transition-colors font-medium inline-flex items-center gap-1"
-              >
-                Digital Nexes
-              </a>
+              <span className="text-[#4ba3fb] font-medium">
+                Aayan Qureshi
+              </span>
             </span>
           </div>
           <div className="flex items-center gap-6">
