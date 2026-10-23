@@ -155,10 +155,10 @@ export const Navigation = () => {
 
           {/* Right panel — always on the RIGHT */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
-            {/* Consultation Button (hidden when scrolled) */}
+            {/* Consultation Button (only on desktop/tablet sm+ when not scrolled) */}
             <div
               style={{
-                display: scrolled ? 'none' : 'flex',
+                display: scrolled ? 'none' : undefined,
                 alignItems: 'center',
               }}
               className="hidden sm:flex"
@@ -170,16 +170,17 @@ export const Navigation = () => {
               />
             </div>
 
-            {/* Phone icon (only visible when scrolled/collapsed) */}
+            {/* Phone icon (only visible when scrolled/collapsed on sm+ screens) */}
             {scrolled && (
               <button
                 onClick={() => setCurrentPage('contact')}
+                className="hidden sm:flex"
                 style={{
                   width: '30px', height: '30px', borderRadius: '50%',
                   border: '1px solid rgba(75,163,251,0.4)',
                   background: 'rgba(4,102,200,0.18)',
                   color: AL,
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  alignItems: 'center', justifyContent: 'center',
                   cursor: 'pointer', flexShrink: 0,
                 }}
                 title="Contact ESAC"
@@ -188,11 +189,11 @@ export const Navigation = () => {
               </button>
             )}
 
-            {/* Hamburger — always visible */}
+            {/* Hamburger — always visible and cleanly aligned with logo on mobile */}
             <button
               onClick={() => setIsNavOpen(!isNavOpen)}
               style={{
-                width: '32px', height: '32px', borderRadius: '50%',
+                width: '34px', height: '34px', borderRadius: '50%',
                 border: '1px solid rgba(255,255,255,0.22)',
                 background: 'linear-gradient(135deg, rgba(4,102,200,0.35) 0%, rgba(4,102,200,0.6) 100%)',
                 boxShadow: '0 0 14px rgba(4,102,200,0.4), inset 0 1px 0 rgba(255,255,255,0.15)',
@@ -209,8 +210,9 @@ export const Navigation = () => {
                 e.currentTarget.style.boxShadow = '0 0 14px rgba(4,102,200,0.4), inset 0 1px 0 rgba(255,255,255,0.15)';
                 e.currentTarget.style.transform = 'scale(1)';
               }}
+              aria-label="Toggle navigation menu"
             >
-              {isNavOpen ? <X size={13} color="#ffffff" /> : <Menu size={13} color="#ffffff" />}
+              {isNavOpen ? <X size={15} color="#ffffff" /> : <Menu size={15} color="#ffffff" />}
             </button>
           </div>
         </div>
@@ -245,6 +247,15 @@ export const Navigation = () => {
                   </button>
                 </div>
               ))}
+            </div>
+
+            {/* Consultation CTA inside mobile menu */}
+            <div className="mt-8 pt-6 border-t border-white/10 sm:hidden flex flex-col gap-3">
+              <ConsultationButton
+                onClick={() => { setCurrentPage('contact'); setIsNavOpen(false); }}
+                text="Get Consultation"
+                compact={false}
+              />
             </div>
           </div>
           <div className="lg:col-span-4 flex flex-col justify-center border-t lg:border-t-0 lg:border-l pt-6 lg:pt-0 lg:pl-12 space-y-6 sm:space-y-8" style={{ borderColor: TB }}>
